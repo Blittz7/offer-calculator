@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ofertownik Web-to-Print</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Ofertownik Web-to-Print</h1>
+        <form id="offerForm">
+          <label for="product">Produkt:</label>
+          <select id="product" name="product" required>
+            <option value="">-- Wybierz produkt --</option>
+          </select>
+
+          <label for="quantity">Nakład (szt.):</label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            step="1"
+            required
+          />
+
+          <label for="finishing">Wykończenie:</label>
+          <select id="finishing">
+            <option value="">Brak</option>
+          </select>
+
+          <label for="clientName">Nazwa klienta:</label>
+          <input type="text" id="clientName" name="clientName" required />
+
+          <div class="form-group">
+            <label for="discount">Rabat (%)</label>
+            <input type="number" id="discount" min="0" max="100" value="0" />
+          </div>
+
+          <button type="submit">Oblicz cenę</button>
+        </form>
+        <button id="manageProductsBtn" type="button">
+          Zarządzaj produktami
+        </button>
+        <div id="productModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Zarządzanie produktami</h2>
+
+            <form id="addProductForm">
+              <label for="newProductName">Nazwa produktu:</label>
+              <input type="text" id="newProductName" required />
+
+              <label for="newProductPrice">Cena (zł):</label>
+              <input
+                type="number"
+                id="newProductPrice"
+                min="0"
+                step="0.01"
+                required
+              />
+
+              <button type="submit">Dodaj produkt</button>
+            </form>
+
+            <h3>Lista produktów</h3>
+            <ul id="productList">
+              <!-- tutaj JS wstawi produkty -->
+            </ul>
+          </div>
+        </div>
+        <!-- Modal do edycji produktu -->
+        <div id="editProductModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edytuj produkt</h2>
+
+            <form id="editProductForm">
+              <label for="editProductName">Nazwa produktu:</label>
+              <input type="text" id="editProductName" required />
+
+              <label for="editProductPrice">Cena (zł):</label>
+              <input
+                type="number"
+                id="editProductPrice"
+                min="0"
+                step="0.01"
+                required
+              />
+
+              <button type="submit">Zapisz zmiany</button>
+            </form>
+            <!-- Modal do edycji wykończeń -->
+            <hr />
+            <h3>Wykończenia</h3>
+
+            <ul id="finishingsList"></ul>
+
+            <form id="addFinishingForm">
+              <input
+                type="text"
+                id="newFinishingName"
+                placeholder="Nazwa wykończenia"
+                required
+              />
+              <input
+                type="number"
+                id="newFinishingPrice"
+                placeholder="Cena (zł/szt.)"
+                step="0.01"
+                min="0"
+                required
+              />
+              <button type="submit">Dodaj wykończenie</button>
+            </form>
+          </div>
+        </div>
+        <!-- Modal do podsumowania ceny -->
+        <div id="summaryModal" class="modal">
+          <div class="modal-content">
+            <span id="closeSummary" class="close">&times;</span>
+            <h2>Podsumowanie ceny</h2>
+            <div id="summaryDetails"></div>
+            <button type="button" id="downloadPDF" class="btn-pdf">
+              Pobierz PDF
+            </button>
+            <div class="modal-actions"></div>
+          </div>
+        </div>
+
+        <div id="message"></div>
+        <div id="priceOutput"></div>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/calculator.js"></script>
+    <script src="../js/productData.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

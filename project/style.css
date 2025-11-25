@@ -1,0 +1,196 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#priceOutput {
+  margin-top: 15px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+#productList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#productList li span {
+  flex: 1; /* tekst rozciąga się do wolnej przestrzeni */
+}
+
+.edit-btn,
+.delete-btn {
+  width: 50px; /* stała szerokość przycisków */
+  text-align: center;
+}
+
+/* Przycisk edycji */
+.edit-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 2px 6px; /* mniejsze przyciski */
+  margin-left: 1px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+  width: 50px;
+}
+
+/* Przycisk usuwania */
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+  width: 50px;
+}
+/* Klasa error do podświetlania pól z błędami */
+.error {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+/* === Modal z podsumowaniem === */
+#summaryModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#summaryModal .modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#summaryModal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#summaryModal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+}
+
+#summaryModal .modal-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Prosta animacja pojawiania */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Wygląd buttona do generowania PDF */
+.btn-pdf {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-pdf:hover {
+  background-color: #444;
+}
